@@ -13,7 +13,7 @@ class barangController extends Controller
      */
     public function index()
     {
-        $barang = masterBarang::paginate(10);
+        $barang = masterBarang::all();
 
         return response()->json([
             'barang' => $barang

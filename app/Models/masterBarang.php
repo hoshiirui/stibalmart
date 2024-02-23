@@ -15,4 +15,9 @@ class masterBarang extends Model
         'hargaModal',
         'hargaJual'
     ];
+
+     public function details()
+    {
+        return $this->hasMany(transaksiMultipleDetail::class, 'idBarang', 'kode');
+    }
 }

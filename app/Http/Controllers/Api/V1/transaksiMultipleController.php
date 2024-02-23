@@ -44,7 +44,7 @@ class transaksiMultipleController extends Controller
 
     public function getCurrentTransaction()
     {
-        $currentTransaction = transaksiMultipleHeader::with('details')
+        $currentTransaction = transaksiMultipleHeader::with('details', 'details.barang')
             ->where('status', 'unsaved')
             ->first();
         return response()->json([
@@ -68,7 +68,7 @@ class transaksiMultipleController extends Controller
             ]);
         } else {
             // Create a new detail
-            $newDetail = transaksiMultipleDetail::create([
+            transaksiMultipleDetail::create([
                 'idHeader' => $request->idHeader,
                 'idBarang' => $request->idBarang,
                 'qty' => $request->qty,

@@ -15,4 +15,9 @@ class transaksiMultipleDetail extends Model
         "qty",
         "catatan"
     ];
+
+     public function barang()
+    {
+        return $this->belongsTo(masterBarang::class, 'idBarang', 'kode');
+    }
 }
