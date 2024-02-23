@@ -5,15 +5,18 @@ const ProductList = (props) => {
     const handleNewItem = async (idBarang) => {
         try {
             // Make a POST request to 'api/v1/transaksi/newItem' with the idBarang
-            await axios.post("api/v1/transaksi/newItem", {
-                idHeader: 3,
-                idBarang: idBarang,
-                qty: 1, // Assuming the quantity is 1 for each click, you can adjust as needed
-                catatan: "-", // You can add a note here if needed
-            });
+            const { data: responseAdd } = await axios.post(
+                "api/v1/transaksi/newItem",
+                {
+                    idHeader: props.transaksiHeaderId,
+                    idBarang: idBarang,
+                    qty: 1, // Assuming the quantity is 1 for each click, you can adjust as needed
+                    catatan: "-", // You can add a note here if needed
+                }
+            );
             // Handle any success behavior (e.g., showing a message)
             console.log("Product added to cart successfully!");
-            props.refreshTransaction();
+            props.refreshTransaction(responseAdd.data.id);
         } catch (error) {
             // Handle any errors
             console.error("Error adding product to cart:", error.message);

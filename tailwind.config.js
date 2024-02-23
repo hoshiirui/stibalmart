@@ -40,8 +40,8 @@ export default {
                 padding: {
                     DEFAULT: "16px",
                     sm: "16px",
-                    md: "64px",
-                    lg: "88px",
+                    md: "32px",
+                    lg: "32px",
                 },
             },
         },

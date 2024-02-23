@@ -33,3 +33,9 @@ Route::post('v1/transaksi/new', [transaksiMultipleController::class, 'newTransac
 Route::get('v1/transaksi/current', [transaksiMultipleController::class, 'getCurrentTransaction']);
 
 Route::post('v1/transaksi/newItem', [transaksiMultipleController::class, 'newTransactionDetail']);
+
+Route::delete('v1/transaksi/deleteItem/{id}', [transaksiMultipleController::class, 'deleteItem']);
+
+Route::patch('v1/transaksi/editItem/{id}', [transaksiMultipleController::class, 'editDetail']);
+
+Route::post('v1/transaksi/saveTransaction', [transaksiMultipleController::class, 'saveTransaction']);
